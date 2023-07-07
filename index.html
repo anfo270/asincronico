@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Aparatos electrónicos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: beige;
+            color: darkgreen;
+        }
+
+        #Menu,
+        #consultores {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Aparatos electrónicos</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <ul id="servicios" class="list-group">
+                    <li class="list-group-item">Productos</li>
+                    <li class="list-group-item">Promociones</li>
+                </ul>
+            </div>
+
+
+            <div class="col-md-4">
+                <ul id="Menu" class="list-group Productos">
+                    <h2>Productos</h2>
+                    <li class="list-group-item">Teléfono</li>
+                    <li class="list-group-item">Laptop</li>
+                    <li class="list-group-item">Tablet</li>
+                </ul>
+            </div>
+
+
+            <div class="col-md-4">
+                <ul id="Menu" class="list-group Promociones">
+                    <h2>Promociones</h2>
+                    <li class="list-group-item">Descuento 20%</li>
+                    <li class="list-group-item">Descuento 30%</li>
+                    <li class="list-group-item">Descuento 35%</li>
+                </ul>
+            </div>
+
+            <div class="col-md-6">
+                <h2>Productos</h2>
+                <ul id="ListaProductos" class="list-group">
+                    <li class="list-group-item">
+                        <img src="samssungs10.jpg" alt="Consultor 1" class="img-thumbnail col-md-6">
+                        <div>
+                            <h4>Samsung S10</h4>
+                            <p>Descuento 20%</p>
+                            <p>Marca: Samsung</p>
+                            <p>Precio: 10000$</p>
+                            <p>Producto: Teléfono</p>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item">
+                        <img src="" alt="Consultor 1" class="img-thumbnail">
+                        <div>
+                            <h4>Samsung S10</h4>
+                            <p>Descuento 20%</p>
+                            <p>Marca: Samsung</p>
+                            <p>Precio: 10000$</p>
+                            <p>Producto: Teléfono</p>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item">
+                        <img src="consultor1.jpg" alt="Consultor 1" class="img-thumbnail">
+                        <div>
+                            <h4>Samsung S10</h4>
+                            <p>Descuento 20%</p>
+                            <p>Marca: Samsung</p>
+                            <p>Precio: 10000$</p>
+                            <p>Producto: Teléfono</p>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item">
+                        <img src="consultor1.jpg" alt="Consultor 1" class="img-thumbnail">
+                        <div>
+                            <h4>Samsung S10</h4>
+                            <p>Descuento 20%</p>
+                            <p>Marca: Samsung</p>
+                            <p>Precio: 10000$</p>
+                            <p>Producto: Teléfono</p>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item">
+                        <img src="consultor1.jpg" alt="Consultor 1" class="img-thumbnail">
+                        <div>
+                            <h4>Samsung S10</h4>
+                            <p>Descuento 20%</p>
+                            <p>Marca: Samsung</p>
+                            <p>Precio: 10000$</p>
+                            <p>Producto: Teléfono</p>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item">
+                        <img src="consultor1.jpg" alt="Consultor 1" class="img-thumbnail">
+                        <div>
+                            <h4>Samsung S10</h4>
+                            <p>Descuento 20%</p>
+                            <p>Marca: Samsung</p>
+                            <p>Precio: 10000$</p>
+                            <p>Producto: Teléfono</p>
+                        </div>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.Productos li').click(function () {
+                $(this).addClass('active').siblings().removeClass('active');
+                var servicioSeleccionado = $(this).text();
+                // Filtrar la lista de consultores por servicio 
+                $('#ListaProductos li').each(function () {
+                    var servicio = $(this).find('p:last').text().split(': ')[1];
+                    if (servicio === servicioSeleccionado) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+        });
+
+        $(document).ready(function () {
+            $('.Promociones li').click(function () {
+                $(this).addClass('active').siblings().removeClass('active');
+                var servicioSeleccionado = $(this).text();
+                // Filtrar la lista de consultores por servicio 
+                $('#ListaProductos li').each(function () {
+                    var servicio = $(this).find('p:first').text();
+                    if (servicio === servicioSeleccionado) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+        });
+
+        $(document).ready(function () {
+            $('#servicios li').click(function () {
+                $(this).addClass('active').siblings().removeClass('active');
+
+                var servicioSeleccionado = $(this).text();
+                // Filtrar la lista de consultores por servicio 
+                $('#Menu ').each(function () {
+                    var servicio = $(this).find('h2:last').text();
+                    if (servicio === servicioSeleccionado) {
+                        $(this).show();
+
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
